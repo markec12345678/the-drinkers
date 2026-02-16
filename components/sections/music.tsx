@@ -84,7 +84,7 @@ export function Music() {
                     />
                   ) : album.title === "Žeja" ? (
                     <Image
-                      src="/album-zeja.png"
+                      src="/album-zeja.jpg"
                       alt={album.title}
                       fill
                       className="object-contain"
