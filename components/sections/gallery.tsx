@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 import { X } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
@@ -47,13 +46,10 @@ export function Gallery() {
                 onClick={() => setSelectedImage(img)}
                 className="bar-poster group relative aspect-square overflow-hidden rounded-sm border-2 border-amber-800/40 bg-black transition-all hover:border-amber-500/70"
               >
-                <Image
+                <img
                   src={img.src}
                   alt={img.alt}
-                  fill
-                  unoptimized
-                  className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
-                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
                 />
               </button>
             ))}
@@ -74,12 +70,9 @@ export function Gallery() {
             className="relative max-h-[85svh] max-w-full md:max-w-4xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <Image
+            <img
               src={selectedImage.src}
               alt={selectedImage.alt}
-              width={800}
-              height={600}
-              unoptimized
               className="max-h-[85svh] w-auto object-contain"
             />
             <button

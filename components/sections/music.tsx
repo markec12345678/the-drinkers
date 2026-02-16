@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Card, CardHeader } from "@/components/ui/card";
 import { Music2, Disc3, Headphones } from "lucide-react";
@@ -65,52 +64,40 @@ export function Music() {
               <CardHeader className="pb-2">
                 <div className="relative mb-2 aspect-square w-full overflow-hidden rounded bg-black">
                   {album.title === "Lepi in trezni" ? (
-                    <Image
+                    <img
                       src={siteConfig.imageBaseUrl ? `${siteConfig.imageBaseUrl}/album-lepi-in-trezni.jpg` : "/album-lepi-in-trezni.jpg"}
                       alt={album.title}
-                      fill
-                      unoptimized
-                      className="object-contain"
+                      className="absolute inset-0 h-full w-full object-contain"
                     />
                   ) : album.title === "Žeja" ? (
-                    <Image
+                    <img
                       src={siteConfig.imageBaseUrl ? `${siteConfig.imageBaseUrl}/album-zeja.jpg` : "/album-zeja.jpg"}
                       alt={album.title}
-                      fill
-                      unoptimized
-                      className="object-contain"
+                      className="absolute inset-0 h-full w-full object-contain"
                     />
                   ) : album.title === "Pivolucija" ? (
-                    <Image
+                    <img
                       src={siteConfig.imageBaseUrl ? `${siteConfig.imageBaseUrl}/album-pivolucija.jpg` : "/album-pivolucija.jpg"}
                       alt={album.title}
-                      fill
-                      unoptimized
-                      className="object-contain"
+                      className="absolute inset-0 h-full w-full object-contain"
                     />
                   ) : album.title === "Zadnja Večerja" ? (
-                    <Image
+                    <img
                       src={siteConfig.imageBaseUrl ? `${siteConfig.imageBaseUrl}/album-zadnja-vecerja.jpg` : "/album-zadnja-vecerja.jpg"}
                       alt={album.title}
-                      fill
-                      unoptimized
-                      className="object-contain"
+                      className="absolute inset-0 h-full w-full object-contain"
                     />
                   ) : album.title === "De best of" ? (
-                    <Image
+                    <img
                       src={siteConfig.imageBaseUrl ? `${siteConfig.imageBaseUrl}/album-de-best-of.jpg` : "/album-de-best-of.jpg"}
                       alt="The Drinkers – De best of"
-                      fill
-                      unoptimized
-                      className="object-contain"
+                      className="absolute inset-0 h-full w-full object-contain"
                     />
                   ) : album.title === "Prohibicija" ? (
-                    <Image
+                    <img
                       src={siteConfig.imageBaseUrl ? `${siteConfig.imageBaseUrl}/album-prohibicija.jpg` : "/album-prohibicija.jpg"}
                       alt={album.title}
-                      fill
-                      unoptimized
-                      className="object-contain"
+                      className="absolute inset-0 h-full w-full object-contain"
                     />
                   ) : (
                     <div className="flex h-full w-full items-center justify-center">
@@ -134,12 +121,10 @@ export function Music() {
           </h3>
           <div className="flex flex-col gap-4 rounded-sm border-2 border-amber-800/40 bg-black/60 p-4 sm:gap-6 sm:p-6 md:flex-row">
             <div className="relative mx-auto aspect-square w-40 shrink-0 overflow-hidden rounded bg-black sm:w-48">
-              <Image
+              <img
                 src={siteConfig.imageBaseUrl ? `${siteConfig.imageBaseUrl}/album-zeja.jpg` : "/album-zeja.jpg"}
                 alt="Žeja"
-                fill
-                unoptimized
-                className="object-contain"
+                className="absolute inset-0 h-full w-full object-contain"
               />
             </div>
             <div className="min-w-0 flex-1">

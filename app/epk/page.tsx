@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 import { Phone, Mail, Music2, Youtube, Facebook, Globe, ExternalLink } from "lucide-react";
@@ -101,12 +100,10 @@ export default function EPKPage() {
                 rel="noopener noreferrer"
                 className="group relative aspect-square overflow-hidden rounded-sm border-2 border-amber-800/40 transition-colors hover:border-amber-500/70"
               >
-                <Image
+                <img
                   src={img.fullSrc}
                   alt={img.alt}
-                  fill
-                  unoptimized
-                  className="object-cover transition-transform group-hover:scale-105"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform group-hover:scale-105"
                 />
                 <span className="absolute bottom-2 left-2 rounded bg-black/80 px-2 py-1 text-xs text-amber-300">
                   Prenesi

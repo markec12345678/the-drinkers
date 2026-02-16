@@ -8,13 +8,6 @@ const nextConfig: NextConfig = {
   }),
   images: {
     unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "raw.githubusercontent.com",
-        pathname: "/markec12345678/the-drinkers/**",
-      },
-    ],
   },
 };
 
