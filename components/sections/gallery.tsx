@@ -45,6 +45,7 @@ export function Gallery() {
                   src={img.src}
                   alt={img.alt}
                   fill
+                  unoptimized
                   className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                 />
@@ -72,6 +73,7 @@ export function Gallery() {
               alt={selectedImage.alt}
               width={800}
               height={600}
+              unoptimized
               className="max-h-[85svh] w-auto object-contain"
             />
             <button

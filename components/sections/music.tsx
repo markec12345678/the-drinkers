@@ -132,6 +132,7 @@ export function Music() {
                 src="/album-zeja.jpg"
                 alt="Žeja"
                 fill
+                unoptimized
                 className="object-contain"
               />
             </div>

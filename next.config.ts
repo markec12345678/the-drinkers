@@ -1,11 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export",
-  basePath: process.env.GITHUB_PAGES === "true" ? "/the-drinkers" : "",
+  // Za GitHub Pages build (npr. GitHub Actions)
+  ...(process.env.GITHUB_PAGES === "true" && {
+    output: "export",
+    basePath: "/the-drinkers",
+  }),
   images: {
     unoptimized: true,
-    qualities: [75, 85],
   },
 };
 

@@ -102,6 +102,7 @@ export default function EPKPage() {
                   src={img.src}
                   alt={img.alt}
                   fill
+                  unoptimized
                   className="object-cover transition-transform group-hover:scale-105"
                 />
                 <span className="absolute bottom-2 left-2 rounded bg-black/80 px-2 py-1 text-xs text-amber-300">
