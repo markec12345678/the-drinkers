@@ -8,8 +8,8 @@ export const newsletterFormUrl = "";
 export const siteConfig = {
   social: {
     spotify: "https://open.spotify.com/search/The%20Drinkers",
-    youtube: "https://www.youtube.com/results?search_query=The+Drinkers+Slovenija",
-    facebook: "https://www.facebook.com/search/pages?q=The%20Drinkers%20Slovenia",
+    youtube: "https://www.youtube.com/channel/UC-iR3CHbMY7CjveMeJH91GQ",
+    facebook: "https://www.facebook.com/100049091725618",
     instagram: "https://www.instagram.com/explore/tags/thedrinkers/",
   },
   /** Embed za Music sekcijo: https://open.spotify.com/embed/artist/XXX */

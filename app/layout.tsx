@@ -27,6 +27,7 @@ const permanentMarker = Permanent_Marker({
 
 export const metadata: Metadata = {
   title: "The Drinkers | Slovenska booze rock skupina",
+  icons: { icon: "/icon.svg" },
   description:
     "The Drinkers – slovenska rock skupina iz Litije (1993). Prohibicija, Žeja, Pijemo ga radi. Booze rock od Rusty Trumpets.",
   openGraph: {

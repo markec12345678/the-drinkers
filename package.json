@@ -1,6 +1,9 @@
 {
   "name": "the-drinkers",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "Slovenska booze rock skupina – spletna stran",
+  "author": "The Drinkers",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "next dev",
