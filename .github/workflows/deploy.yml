@@ -34,6 +34,14 @@ jobs:
         env:
           GITHUB_PAGES: "true"
 
+      - name: Verify output
+        run: |
+          if [ ! -d "out" ]; then
+            echo "::error::Mapa out ni bila ustvarjena – preveri next.config (output: export)"
+            exit 1
+          fi
+          ls -la out/ | head -20
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
