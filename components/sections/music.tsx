@@ -9,51 +9,54 @@ const youtubeEmbedUrl = siteConfig.youtubeEmbedUrl;
 
 const albums = [
   { title: "Lepi in trezni", year: "1995" },
-  { title: "Prohibicija", year: "—" },
-  { title: "The Best Of", year: "—" },
-  { title: "Žeja", year: "—" },
+  { title: "Žeja", year: "1997" },
   { title: "Pivolucija", year: "1999" },
-  { title: "Ko to tamo peva", year: "—" },
+  { title: "Zadnja Večerja", year: "1999" },
+  { title: "De best of", year: "2001" },
+  { title: "Prohibicija", year: "2003" },
 ];
 
-const lepiInTrezniTracks = [
-  "Na stol se bom privezal",
-  "Ko boš prišla na Bled",
-  "Zeleno sonce",
-  "Slovenac",
-  "Ona",
-  "Simona",
-  "Prepozno",
-  "Pošast",
-  "To bo dan",
+/** Tracklist albuma Žeja (1997) – vir: Spirit of Rock */
+const zejaTracks = [
+  "Še Vedno Sem Tu",
+  "Lepi In Trezni",
+  "Bele Školjke Blues",
+  "Gnus",
+  "Žeja",
+  "Alkohol Je Moj Idol",
+  "Deset Majhnih Jagrov",
+  "Lit'r Vina",
+  "Epitaf",
+  "Delirij",
 ];
 
+/** Znane pesmi – vir: Spirit of Rock, Pivolucija (1999) */
 const topTracks = [
   "Pijemo ga radi",
   "Deset majhnih jagrov",
-  "Ko to tamo peva",
-  "I Love Alcohol",
   "Alkohol je moj idol",
+  "I Love Alcohol",
+  "Žeja",
 ];
 
 export function Music() {
   return (
     <section
       id="glasba"
-      className="scroll-mt-20 border-t-2 border-amber-900/40 bg-black py-24 md:py-32 grain-overlay"
+      className="scroll-mt-16 border-t-2 border-amber-900/40 bg-black py-16 sm:py-20 md:scroll-mt-20 md:py-24 lg:py-32 grain-overlay"
     >
-      <div className="container px-4 md:px-6">
+      <div className="container px-4 sm:px-6 lg:px-8">
         <h2
           className="mb-4 text-center font-rye text-3xl tracking-widest text-amber-500 md:text-4xl"
           style={{ textShadow: "2px 2px 0 #991b1b" }}
         >
           GLASBA
         </h2>
-        <p className="mx-auto mb-12 max-w-2xl text-center text-amber-200/70">
+        <p className="mx-auto mb-10 max-w-2xl text-center text-sm text-amber-200/70 sm:mb-12 sm:text-base">
           Albumi in pesmi, ki so nas spremljali skozi leta.
         </p>
 
-        <div className="mb-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mb-12 grid gap-4 sm:grid-cols-2 sm:gap-6 md:mb-16 lg:grid-cols-3 xl:grid-cols-4">
           {albums.map((album) => (
             <Card
               key={album.title}
@@ -67,20 +70,6 @@ export function Music() {
                       alt={album.title}
                       fill
                       className="object-contain"
-                    />
-                  ) : album.title === "Prohibicija" ? (
-                    <Image
-                      src="/album-prohibicija.jpg"
-                      alt={album.title}
-                      fill
-                      className="object-contain"
-                    />
-                  ) : album.title === "The Best Of" ? (
-                    <Image
-                      src="/drinkers-band-photo.jpg"
-                      alt="Črno-bela fotografija petih članov The Drinkers, naslonjenih na grobo steno, v rockovskem slogu"
-                      fill
-                      className="object-cover object-center"
                     />
                   ) : album.title === "Žeja" ? (
                     <Image
@@ -96,12 +85,26 @@ export function Music() {
                       fill
                       className="object-contain"
                     />
-                  ) : album.title === "Ko to tamo peva" ? (
+                  ) : album.title === "Zadnja Večerja" ? (
                     <Image
-                      src="/ko-to-tamo-peva.jpg"
+                      src="/album-zadnja-vecerja.jpg"
                       alt={album.title}
                       fill
-                      className="object-cover object-center"
+                      className="object-contain"
+                    />
+                  ) : album.title === "De best of" ? (
+                    <Image
+                      src="/album-de-best-of.jpg"
+                      alt="The Drinkers – De best of"
+                      fill
+                      className="object-contain"
+                    />
+                  ) : album.title === "Prohibicija" ? (
+                    <Image
+                      src="/album-prohibicija.jpg"
+                      alt={album.title}
+                      fill
+                      className="object-contain"
                     />
                   ) : (
                     <div className="flex h-full w-full items-center justify-center">
@@ -116,25 +119,25 @@ export function Music() {
           ))}
         </div>
 
-        <div className="mx-auto mb-16 max-w-2xl">
+        <div className="mx-auto mb-12 max-w-2xl md:mb-16">
           <h3
-            className="mb-4 text-center font-rye text-xl text-amber-500 md:text-2xl"
+            className="mb-3 text-center font-rye text-lg text-amber-500 sm:mb-4 sm:text-xl md:text-2xl"
             style={{ textShadow: "1px 1px 0 #991b1b" }}
           >
-            Lepi in trezni (1995)
+            Žeja (1997)
           </h3>
-          <div className="flex flex-col gap-6 rounded-sm border-2 border-amber-800/40 bg-black/60 p-6 md:flex-row">
-            <div className="relative aspect-square w-48 shrink-0 overflow-hidden rounded bg-black">
+          <div className="flex flex-col gap-4 rounded-sm border-2 border-amber-800/40 bg-black/60 p-4 sm:gap-6 sm:p-6 md:flex-row">
+            <div className="relative mx-auto aspect-square w-40 shrink-0 overflow-hidden rounded bg-black sm:w-48">
               <Image
-                src="/album-lepi-in-trezni.jpg"
-                alt="Lepi in trezni"
+                src="/album-zeja.jpg"
+                alt="Žeja"
                 fill
                 className="object-contain"
               />
             </div>
             <div className="min-w-0 flex-1">
               <ol className="list-decimal list-inside space-y-1 text-sm text-amber-200/80">
-                {lepiInTrezniTracks.map((track) => (
+                {zejaTracks.map((track) => (
                   <li key={track}>{track}</li>
                 ))}
               </ol>
@@ -142,9 +145,9 @@ export function Music() {
           </div>
         </div>
 
-        <div className="mb-16">
+        <div className="mb-12 md:mb-16">
           <h3
-            className="mb-6 text-center font-rye text-xl text-amber-500 md:text-2xl"
+            className="mb-4 text-center font-rye text-lg text-amber-500 sm:mb-6 sm:text-xl md:text-2xl"
             style={{ textShadow: "1px 1px 0 #991b1b" }}
           >
             Znane pesmi
@@ -153,9 +156,9 @@ export function Music() {
             {topTracks.map((track) => (
               <span
                 key={track}
-                className="inline-flex items-center gap-2 rounded-full border-2 border-amber-700/50 bg-black/60 px-4 py-2.5 text-sm text-amber-200 transition-all duration-200 hover:scale-105 hover:border-amber-500 hover:bg-amber-950/50"
+                className="hover-shake inline-flex items-center gap-2 rounded-full border-2 border-amber-700/50 bg-black/60 px-4 py-2.5 text-sm text-amber-200 transition-all duration-200 hover:scale-105 hover:border-amber-500 hover:bg-amber-950/50"
               >
-                <Music2 className="h-4 w-4 text-amber-500" />
+                <Music2 className="h-3.5 w-3.5 shrink-0 text-amber-500 sm:h-4 sm:w-4" />
                 {track}
               </span>
             ))}
@@ -164,7 +167,7 @@ export function Music() {
 
         <div className="mx-auto max-w-3xl">
           <h3
-            className="mb-6 text-center font-rye text-xl text-amber-500 md:text-2xl"
+            className="mb-4 text-center font-rye text-lg text-amber-500 sm:mb-6 sm:text-xl md:text-2xl"
             style={{ textShadow: "1px 1px 0 #991b1b" }}
           >
             Poslušaj

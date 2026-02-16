@@ -22,18 +22,18 @@ export function About() {
           O NAS
         </h2>
         <div className="mx-auto max-w-3xl">
-          <p className="mb-6 text-center text-lg leading-relaxed text-amber-100/80">
+          <p className="mb-4 text-center text-base leading-relaxed text-amber-100/80 sm:mb-6 sm:text-lg">
             The Drinkers smo slovenska booze rock skupina, ustanovljena julija
             1993 v Litiji. Pet prijateljev, vsi nekdanji glasbeniki različnih
             zasedb, smo se zbrali z idejo nastopiti na lokalnem rock festivalu
             Rusty Trumpets.
           </p>
-          <p className="mb-12 text-center text-lg leading-relaxed text-amber-100/80">
+          <p className="mb-10 text-center text-base leading-relaxed text-amber-100/80 sm:mb-12 sm:text-lg">
             Presenetljivo smo zmagali. In tako se je začela zgodba – rock z
             humorjem, energijo in kultno slovesnostjo slovenske pub scene.
           </p>
-          <div className="grid gap-6 md:grid-cols-3">
-            <div className="flex flex-col items-center gap-3 rounded-sm border-2 border-amber-700/50 bg-black/60 p-6 text-center transition-all hover:border-amber-500/70 hover:bg-amber-950/30">
+          <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 md:grid-cols-3">
+            <div className="hover-drunk flex flex-col items-center gap-3 rounded-sm border-2 border-amber-700/50 bg-black/60 p-5 text-center transition-all hover:border-amber-500/70 hover:bg-amber-950/30 sm:p-6">
               <Users className="h-10 w-10 text-amber-500" />
               <h3 className="font-bold text-amber-200">5 prijateljev</h3>
               <p className="text-sm text-amber-300/60">Od Litije do odra</p>
@@ -43,7 +43,7 @@ export function About() {
               <h3 className="font-bold text-amber-200">Rusty Trumpets</h3>
               <p className="text-sm text-amber-300/60">Zmagovalci festivala</p>
             </div>
-            <div className="flex flex-col items-center gap-3 rounded-sm border-2 border-amber-700/50 bg-black/60 p-6 text-center transition-all hover:border-amber-500/70 hover:bg-amber-950/30">
+            <div className="hover-drunk flex flex-col items-center gap-3 rounded-sm border-2 border-amber-700/50 bg-black/60 p-5 text-center transition-all hover:border-amber-500/70 hover:bg-amber-950/30 sm:p-6">
               <Guitar className="h-10 w-10 text-amber-500" />
               <h3 className="font-bold text-amber-200">Booze rock</h3>
               <p className="text-sm text-amber-300/60">Od 1993</p>
@@ -61,7 +61,7 @@ export function About() {
               {lineup.map((member) => (
                 <div
                   key={member.name}
-                  className="flex items-center justify-between rounded-sm border-2 border-amber-800/40 bg-black/50 px-5 py-4 transition-colors hover:border-amber-600/60"
+                  className="flex flex-col gap-1 rounded-sm border-2 border-amber-800/40 bg-black/50 px-4 py-3 transition-colors hover:border-amber-600/60 sm:flex-row sm:items-center sm:justify-between sm:px-5 sm:py-4"
                 >
                   <span className="font-bold text-amber-200">{member.name}</span>
                   <span className="text-sm text-amber-400/70">{member.role}</span>

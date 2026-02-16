@@ -7,6 +7,10 @@ import { X } from "lucide-react";
 const galleryImages = [
   { src: "/drinkers-band-photo.jpg", alt: "The Drinkers – skupinska fotografija" },
   { src: "/ko-to-tamo-peva.jpg", alt: "Ko to tamo peva" },
+  { src: "/album-lepi-in-trezni.jpg", alt: "Album Lepi in trezni (1995)" },
+  { src: "/album-zeja.jpg", alt: "Album Žeja (1997)" },
+  { src: "/album-pivolucija.jpg", alt: "Album Pivolucija (1999)" },
+  { src: "/album-prohibicija.jpg", alt: "Album Prohibicija (2003)" },
 ];
 
 export function Gallery() {
@@ -16,11 +20,11 @@ export function Gallery() {
     <>
       <section
         id="galerija"
-        className="scroll-mt-20 border-t-2 border-amber-900/40 bg-black py-24 md:py-32 grain-overlay"
+        className="scroll-mt-16 border-t-2 border-amber-900/40 bg-black py-16 sm:py-20 md:scroll-mt-20 md:py-24 lg:py-32 grain-overlay"
       >
-        <div className="container px-4 md:px-6">
+        <div className="container px-4 sm:px-6 md:px-6 lg:px-8">
           <h2
-            className="mb-4 text-center font-rye text-3xl tracking-widest text-amber-500 md:text-4xl"
+            className="mb-3 text-center font-rye text-2xl tracking-widest text-amber-500 sm:mb-4 sm:text-3xl md:text-4xl"
             style={{ textShadow: "2px 2px 0 #991b1b" }}
           >
             GALERIJA
@@ -35,7 +39,7 @@ export function Gallery() {
                 key={img.src}
                 type="button"
                 onClick={() => setSelectedImage(img)}
-                className="group relative aspect-square overflow-hidden rounded-sm border-2 border-amber-800/40 bg-black transition-all hover:border-amber-500/70 hover:shadow-[0_0_20px_rgba(217,119,6,0.2)]"
+                className="bar-poster group relative aspect-square overflow-hidden rounded-sm border-2 border-amber-800/40 bg-black transition-all hover:border-amber-500/70"
               >
                 <Image
                   src={img.src}
@@ -55,11 +59,12 @@ export function Gallery() {
           role="dialog"
           aria-modal
           aria-label="Povečana fotografija"
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 backdrop-blur-sm"
+          style={{ paddingTop: "env(safe-area-inset-top)", paddingBottom: "env(safe-area-inset-bottom)" }}
           onClick={() => setSelectedImage(null)}
         >
           <div
-            className="relative max-h-[90vh] max-w-4xl"
+            className="relative max-h-[85svh] max-w-full md:max-w-4xl"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
@@ -67,12 +72,12 @@ export function Gallery() {
               alt={selectedImage.alt}
               width={800}
               height={600}
-              className="max-h-[90vh] w-auto object-contain"
+              className="max-h-[85svh] w-auto object-contain"
             />
             <button
               type="button"
               onClick={() => setSelectedImage(null)}
-              className="absolute -right-2 -top-2 flex h-10 w-10 items-center justify-center rounded-full border-2 border-amber-600 bg-black/80 text-amber-400 transition-colors hover:bg-amber-600/30"
+              className="tap-target fixed right-4 top-4 z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 border-amber-600 bg-black/90 text-amber-400 transition-colors hover:bg-amber-600/30 active:scale-95"
               aria-label="Zapri"
             >
               <X className="h-5 w-5" />

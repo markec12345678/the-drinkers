@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
 import { Gallery } from "@/components/sections/gallery";
 import { Music } from "@/components/sections/music";
+import { Videos } from "@/components/sections/videos";
 import { Concerts } from "@/components/sections/concerts";
 import { Contact } from "@/components/sections/contact";
 import { Footer } from "@/components/sections/footer";
@@ -23,6 +24,7 @@ export default function Home() {
         <About />
         <Gallery />
         <Music />
+        <Videos />
         <Concerts />
         <Contact />
       </main>

@@ -2,17 +2,16 @@ import Link from "next/link";
 import { Calendar, MapPin, ExternalLink, Facebook, Instagram } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 
-const upcomingConcerts: { date: string; venue: string; city: string; link?: string }[] = [];
-
 export function Concerts() {
+  const upcomingConcerts = siteConfig.concerts;
   return (
     <section
       id="koncerti"
-      className="scroll-mt-20 border-t-2 border-amber-900/40 bg-[#0c0a09] py-24 md:py-32 grain-overlay"
+      className="scroll-mt-16 border-t-2 border-amber-900/40 bg-[#0c0a09] py-16 sm:py-20 md:scroll-mt-20 md:py-24 lg:py-32 grain-overlay"
     >
-      <div className="container px-4 md:px-6">
+      <div className="container px-4 sm:px-6 md:px-6 lg:px-8">
         <h2
-          className="mb-4 text-center font-rye text-3xl tracking-widest text-amber-500 md:text-4xl"
+          className="mb-3 text-center font-rye text-2xl tracking-widest text-amber-500 sm:mb-4 sm:text-3xl md:text-4xl"
           style={{ textShadow: "2px 2px 0 #991b1b" }}
         >
           KONCERTI
@@ -26,7 +25,7 @@ export function Concerts() {
             {upcomingConcerts.map((concert) => (
               <div
                 key={`${concert.date}-${concert.venue}`}
-                className="flex flex-col gap-3 rounded-sm border-2 border-amber-700/50 bg-black/60 p-6 transition-all hover:border-amber-500/70 md:flex-row md:items-center md:justify-between"
+                className="hover-drunk flex flex-col gap-3 rounded-sm border-2 border-amber-700/50 bg-black/60 p-6 transition-all hover:border-amber-500/70 md:flex-row md:items-center md:justify-between"
               >
                 <div className="flex items-start gap-4">
                   <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-sm border-2 border-amber-600/60 bg-amber-950/50">
@@ -56,28 +55,28 @@ export function Concerts() {
             ))}
           </div>
         ) : (
-          <div className="mx-auto flex max-w-2xl flex-col items-center gap-6">
-            <p className="text-center text-amber-200/80">
+          <div className="mx-auto flex max-w-2xl flex-col items-center gap-5 sm:gap-6">
+            <p className="text-center text-sm text-amber-200/80 sm:text-base">
               Naši koncerti so objavljeni na socialnih omrežjih. Sledi nam, da ne zamudiš!
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
               <a
                 href={siteConfig.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-sm border-2 border-amber-600 bg-amber-600/20 px-8 py-3 font-bold text-amber-200 transition-all duration-200 hover:border-amber-500 hover:bg-amber-600/40 active:scale-[0.98]"
+                className="tap-target inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-sm border-2 border-amber-600 bg-amber-600/20 px-6 py-3 font-bold text-amber-200 transition-all duration-200 hover:border-amber-500 hover:bg-amber-600/40 active:scale-[0.98] sm:w-auto sm:px-8"
               >
-                <Facebook className="h-5 w-5" />
-                Sledi nam na Facebooku
+                <Facebook className="h-5 w-5 shrink-0" />
+                <span className="truncate">Sledi nam na Facebooku</span>
               </a>
               <a
                 href={siteConfig.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-sm border-2 border-amber-600 bg-amber-600/20 px-8 py-3 font-bold text-amber-200 transition-all duration-200 hover:border-amber-500 hover:bg-amber-600/40 active:scale-[0.98]"
+                className="hover-drunk tap-target inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-sm border-2 border-amber-600 bg-amber-600/20 px-6 py-3 font-bold text-amber-200 transition-all duration-200 hover:border-amber-500 hover:bg-amber-600/40 active:scale-[0.98] sm:w-auto sm:px-8"
               >
-                <Instagram className="h-5 w-5" />
-                Sledi nam na Instagramu
+                <Instagram className="h-5 w-5 shrink-0" />
+                <span className="truncate">Sledi nam na Instagramu</span>
               </a>
             </div>
             <Link
