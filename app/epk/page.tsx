@@ -89,17 +89,20 @@ export default function EPKPage() {
               { src: "/album-zeja.jpg", alt: "Album Žeja (1997)" },
               { src: "/album-pivolucija.jpg", alt: "Album Pivolucija (1999)" },
               { src: "/album-prohibicija.jpg", alt: "Album Prohibicija (2003)" },
-            ].map((img) => (
+            ].map((img) => ({
+              ...img,
+              fullSrc: siteConfig.imageBaseUrl ? `${siteConfig.imageBaseUrl}${img.src}` : img.src,
+            })).map((img) => (
               <a
                 key={img.src}
-                href={img.src}
+                href={img.fullSrc}
                 download
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative aspect-square overflow-hidden rounded-sm border-2 border-amber-800/40 transition-colors hover:border-amber-500/70"
               >
                 <Image
-                  src={img.src}
+                  src={img.fullSrc}
                   alt={img.alt}
                   fill
                   unoptimized

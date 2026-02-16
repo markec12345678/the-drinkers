@@ -35,4 +35,9 @@ export const siteConfig = {
   },
   /** Osnovni URL strani (za og:image, canonical) */
   siteUrl: "https://thedrinkers.si",
+  /**
+   * Base URL za slike. Vercel ne servira public/ pravilno – uporabimo GitHub Raw.
+   * Ko Vercel deluje: spremeni v "" za lokalne poti.
+   */
+  imageBaseUrl: "https://raw.githubusercontent.com/markec12345678/the-drinkers/main/public",
 } as const;

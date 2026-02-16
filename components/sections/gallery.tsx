@@ -3,8 +3,9 @@
 import Image from "next/image";
 import { useState } from "react";
 import { X } from "lucide-react";
+import { siteConfig } from "@/lib/site-config";
 
-const galleryImages = [
+const galleryImagePaths = [
   { src: "/drinkers-band-photo.jpg", alt: "The Drinkers – skupinska fotografija" },
   { src: "/ko-to-tamo-peva.jpg", alt: "Ko to tamo peva" },
   { src: "/album-lepi-in-trezni.jpg", alt: "Album Lepi in trezni (1995)" },
@@ -12,6 +13,11 @@ const galleryImages = [
   { src: "/album-pivolucija.jpg", alt: "Album Pivolucija (1999)" },
   { src: "/album-prohibicija.jpg", alt: "Album Prohibicija (2003)" },
 ];
+
+const galleryImages = galleryImagePaths.map((img) => ({
+  ...img,
+  src: siteConfig.imageBaseUrl ? `${siteConfig.imageBaseUrl}${img.src}` : img.src,
+}));
 
 export function Gallery() {
   const [selectedImage, setSelectedImage] = useState<(typeof galleryImages)[0] | null>(null);

@@ -66,44 +66,50 @@ export function Music() {
                 <div className="relative mb-2 aspect-square w-full overflow-hidden rounded bg-black">
                   {album.title === "Lepi in trezni" ? (
                     <Image
-                      src="/album-lepi-in-trezni.jpg"
+                      src={siteConfig.imageBaseUrl ? `${siteConfig.imageBaseUrl}/album-lepi-in-trezni.jpg` : "/album-lepi-in-trezni.jpg"}
                       alt={album.title}
                       fill
+                      unoptimized
                       className="object-contain"
                     />
                   ) : album.title === "Žeja" ? (
                     <Image
-                      src="/album-zeja.jpg"
+                      src={siteConfig.imageBaseUrl ? `${siteConfig.imageBaseUrl}/album-zeja.jpg` : "/album-zeja.jpg"}
                       alt={album.title}
                       fill
+                      unoptimized
                       className="object-contain"
                     />
                   ) : album.title === "Pivolucija" ? (
                     <Image
-                      src="/album-pivolucija.jpg"
+                      src={siteConfig.imageBaseUrl ? `${siteConfig.imageBaseUrl}/album-pivolucija.jpg` : "/album-pivolucija.jpg"}
                       alt={album.title}
                       fill
+                      unoptimized
                       className="object-contain"
                     />
                   ) : album.title === "Zadnja Večerja" ? (
                     <Image
-                      src="/album-zadnja-vecerja.jpg"
+                      src={siteConfig.imageBaseUrl ? `${siteConfig.imageBaseUrl}/album-zadnja-vecerja.jpg` : "/album-zadnja-vecerja.jpg"}
                       alt={album.title}
                       fill
+                      unoptimized
                       className="object-contain"
                     />
                   ) : album.title === "De best of" ? (
                     <Image
-                      src="/album-de-best-of.jpg"
+                      src={siteConfig.imageBaseUrl ? `${siteConfig.imageBaseUrl}/album-de-best-of.jpg` : "/album-de-best-of.jpg"}
                       alt="The Drinkers – De best of"
                       fill
+                      unoptimized
                       className="object-contain"
                     />
                   ) : album.title === "Prohibicija" ? (
                     <Image
-                      src="/album-prohibicija.jpg"
+                      src={siteConfig.imageBaseUrl ? `${siteConfig.imageBaseUrl}/album-prohibicija.jpg` : "/album-prohibicija.jpg"}
                       alt={album.title}
                       fill
+                      unoptimized
                       className="object-contain"
                     />
                   ) : (
@@ -129,7 +135,7 @@ export function Music() {
           <div className="flex flex-col gap-4 rounded-sm border-2 border-amber-800/40 bg-black/60 p-4 sm:gap-6 sm:p-6 md:flex-row">
             <div className="relative mx-auto aspect-square w-40 shrink-0 overflow-hidden rounded bg-black sm:w-48">
               <Image
-                src="/album-zeja.jpg"
+                src={siteConfig.imageBaseUrl ? `${siteConfig.imageBaseUrl}/album-zeja.jpg` : "/album-zeja.jpg"}
                 alt="Žeja"
                 fill
                 unoptimized

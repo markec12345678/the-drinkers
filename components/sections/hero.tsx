@@ -1,13 +1,18 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Music, Calendar } from "lucide-react";
+import { siteConfig } from "@/lib/site-config";
 
 export function Hero() {
+  const heroBg = siteConfig.imageBaseUrl
+    ? `${siteConfig.imageBaseUrl}/hero-bg.jpg`
+    : "/hero-bg.jpg";
+
   return (
     <section className="relative flex min-h-[80svh] flex-col items-center justify-center gap-6 px-4 py-16 text-center sm:min-h-[85vh] sm:gap-8 sm:py-20 md:min-h-[90vh] md:py-28 lg:py-32 grain-overlay">
       <div className="absolute inset-0">
         <Image
-          src="/hero-bg.jpg"
+          src={heroBg}
           alt=""
           fill
           priority
