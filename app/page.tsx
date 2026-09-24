@@ -2,14 +2,16 @@
 
 import {useEffect,useState} from "react";
 
+const asset=(path:string)=>`/the-drinkers/${path}`;
+
 const releases=[
- {year:"1995",title:"Lepi in trezni",type:"ALBUM",img:"/album-lepi-in-trezni.jpg"},
- {year:"1997",title:"Žeja",type:"ALBUM",img:"/album-zeja.jpg"},
- {year:"1998",title:"Ko to tamo peva",type:"SINGLE",img:"/ko-to-tamo-peva.jpg"},
- {year:"1999",title:"Pivolucija",type:"ALBUM",img:"/album-pivolucija.jpg"},
- {year:"1999",title:"Zadnja večerja",type:"EP",img:"/album-zadnja-vecerja.jpg"},
- {year:"2001",title:"De Best Od",type:"COMPILATION",img:"/album-de-best-of.jpg"},
- {year:"2003",title:"Prohibicija",type:"ALBUM",img:"/album-prohibicija.jpg"},
+ {year:"1995",title:"Lepi in trezni",type:"ALBUM",img:"/the-drinkers/album-lepi-in-trezni.jpg"},
+ {year:"1997",title:"Žeja",type:"ALBUM",img:"/the-drinkers/album-zeja.jpg"},
+ {year:"1998",title:"Ko to tamo peva",type:"SINGLE",img:"/the-drinkers/ko-to-tamo-peva.jpg"},
+ {year:"1999",title:"Pivolucija",type:"ALBUM",img:"/the-drinkers/album-pivolucija.jpg"},
+ {year:"1999",title:"Zadnja večerja",type:"EP",img:"/the-drinkers/album-zadnja-vecerja.jpg"},
+ {year:"2001",title:"De Best Od",type:"COMPILATION",img:"/the-drinkers/album-de-best-of.jpg"},
+ {year:"2003",title:"Prohibicija",type:"ALBUM",img:"/the-drinkers/album-prohibicija.jpg"},
  {year:"2007",title:"Hajdi",type:"ALBUM",img:null},
  {year:"2014",title:"Recidiv",type:"ALBUM",img:null},
 ];
@@ -104,7 +106,7 @@ export default function Home(){
 
   <section id="band" className="band section">
    <div className="sectionHead"><span>01 / THE NEW DRINKERS</span><h2>NOVA<br/><i>ZASEDBA.</i></h2></div>
-   <div className="bandIntro"><div className="bandPortrait"><img src="/drinkers-band-photo.jpg" alt="The Drinkers — nova zasedba" loading="lazy"/><span>THE DRINKERS 2.0 · 2026</span></div><div className="bandStatement"><strong>ŠEST.</strong><strong>EN ODER.</strong><p>Nova zasedba The Drinkers nadaljuje zgodbo skupine iz Litije. Domen Kolenc je novi vokalist, ob njem pa petčlanska instrumentalna zasedba.</p></div></div>
+   <div className="bandIntro"><div className="bandPortrait"><img src={asset("drinkers-band-photo.jpg")} alt="The Drinkers — nova zasedba" loading="lazy"/><span>THE DRINKERS 2.0 · 2026</span></div><div className="bandStatement"><strong>ŠEST.</strong><strong>EN ODER.</strong><p>Nova zasedba The Drinkers nadaljuje zgodbo skupine iz Litije. Domen Kolenc je novi vokalist, ob njem pa petčlanska instrumentalna zasedba.</p></div></div>
    <div className="bandGrid">{lineup.map(([name,role],i)=><article className="member" key={name}><span>0{i+1}</span><div><h3>{name}</h3><p>{role}</p></div><b>↗</b></article>)}</div>
    <p className="sourceNote">Vir za aktualno zasedbo: Blunout, 25. 9. 2026, in Rockline, 15. 9. 2026.</p>
   </section>
@@ -130,7 +132,7 @@ export default function Home(){
 
   <section id="story" className="story section">
    <div className="sectionHead"><span>03 / STORY</span><h2>IZ LITIJE.<br/><i>NA ODER.</i></h2></div>
-   <div className="storyGrid"><div className="storyImage"><img src="/drinkers-band-photo.jpg" alt="The Drinkers" loading="lazy"/></div><div className="storyText"><p className="big">1993 → 2026</p><p>The Drinkers so nastali leta 1993 v Litiji. Po večletnem premoru so se leta 2026 vrnili na odre z novo zasedbo, ki jo vodi Domen Kolenc.</p><p>Prvi nastop nove zasedbe je bil 7. marca 2026 na Jevniškem Retro Džuboksu v Jevnici.</p><a className="textLink" href="#timeline">ODPRI ARHIV →</a></div></div>
+   <div className="storyGrid"><div className="storyImage"><img src={asset("drinkers-band-photo.jpg")} alt="The Drinkers" loading="lazy"/></div><div className="storyText"><p className="big">1993 → 2026</p><p>The Drinkers so nastali leta 1993 v Litiji. Po večletnem premoru so se leta 2026 vrnili na odre z novo zasedbo, ki jo vodi Domen Kolenc.</p><p>Prvi nastop nove zasedbe je bil 7. marca 2026 na Jevniškem Retro Džuboksu v Jevnici.</p><a className="textLink" href="#timeline">ODPRI ARHIV →</a></div></div>
   </section>
 
   <section id="music" className="music section">
