@@ -11,8 +11,8 @@ export const metadata:Metadata={
  creator:"The Drinkers",
  publisher:"The Drinkers",
  category:"music",
- openGraph:{url:"https://markec12345678.github.io/the-drinkers/",title:"THE DRINKERS 2.0 — Official",description:"Nova zasedba. Nova glasba. The Drinkers iz Litije.",type:"website",siteName:"The Drinkers",locale:"sl_SI"},
- twitter:{card:"summary_large_image",title:"THE DRINKERS 2.0",description:"Nova zasedba. Nova glasba. The Drinkers iz Litije."},
+ openGraph:{url:"https://markec12345678.github.io/the-drinkers/",images:[{url:"/the-drinkers/hero-bg.jpg",alt:"The Drinkers"}],title:"THE DRINKERS 2.0 — Official",description:"Nova zasedba. Nova glasba. The Drinkers iz Litije.",type:"website",siteName:"The Drinkers",locale:"sl_SI"},
+ twitter:{card:"summary_large_image",images:["/the-drinkers/hero-bg.jpg"],title:"THE DRINKERS 2.0",description:"Nova zasedba. Nova glasba. The Drinkers iz Litije."},
 };
 
 const structuredData={
