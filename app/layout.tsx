@@ -12,7 +12,7 @@ export const metadata:Metadata={
  publisher:"The Drinkers",
  category:"music",
  openGraph:{url:"https://markec12345678.github.io/the-drinkers/",images:[{url:"/the-drinkers/hero-bg.jpg",alt:"The Drinkers"}],title:"THE DRINKERS 2.0 — Official",description:"Nova zasedba. Nova glasba. The Drinkers iz Litije.",type:"website",siteName:"The Drinkers",locale:"sl_SI"},
- icons:{icon:"/the-drinkers/icon.svg",shortcut:"/the-drinkers/icon.svg"},\n twitter:{card:"summary_large_image",images:["/the-drinkers/hero-bg.jpg"],title:"THE DRINKERS 2.0",description:"Nova zasedba. Nova glasba. The Drinkers iz Litije."},
+ icons:{icon:"/the-drinkers/icon.svg",shortcut:"/the-drinkers/icon.svg"},\n manifest:"/the-drinkers/manifest.webmanifest",\n twitter:{card:"summary_large_image",images:["/the-drinkers/hero-bg.jpg"],title:"THE DRINKERS 2.0",description:"Nova zasedba. Nova glasba. The Drinkers iz Litije."},
 };
 
 const structuredData={
