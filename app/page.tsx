@@ -123,7 +123,7 @@ export default function Home(){
 
   <section id="timeline" className="timeline section">
    <div className="sectionHead"><span>05 / ARCHIVE</span><h2>1993 → <i>2026</i></h2></div>
-   <div className="years">{[["1993","Nastanek skupine v Litiji."],["1995","Lepi in trezni."],["1997","Žeja."],["1999","Pivolucija in Zadnja večerja."],["2001","De Best Od."],["2003","Prohibicija."],["2007","Hajdi."],["2014","Recidiv."],["07.03.2026","Prvi nastop nove zasedbe · Jevnica."],["2026","Nova skladba: Ni še umru."].map(x=><div className="year" key={x[0]}><strong>{x[0]}</strong><p>{x[1]}</p></div>)}</div>
+   <div className="years">{[["1993","Nastanek skupine v Litiji."],["1995","Lepi in trezni."],["1997","Žeja."],["1999","Pivolucija in Zadnja večerja."],["2001","De Best Od."],["2003","Prohibicija."],["2007","Hajdi."],["2014","Recidiv."],["07.03.2026","Prvi nastop nove zasedbe · Jevnica."],["2026","Nova skladba: Ni še umru."]].map(x=><div className="year" key={x[0]}><strong>{x[0]}</strong><p>{x[1]}</p></div>)}</div>
   </section>
 
   <section id="shop" className="shop section">
