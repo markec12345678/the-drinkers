@@ -4,7 +4,12 @@ import "./globals.css";
 export const metadata:Metadata={
  title:"THE DRINKERS 2.0 — Official",
  description:"The Drinkers — Litija, Slovenia. Nova zasedba, nova glasba in aktualni koncerti za 2026.",
- openGraph:{title:"THE DRINKERS 2.0 — Official",description:"Nova zasedba. Nova glasba. The Drinkers iz Litije.",type:"website"},
+ keywords:["The Drinkers","The Drinkers 2.0","Ni še umru","drink’n’roll","Litija","Slovenia","rock","Domen Kolenc"],
+ authors:[{name:"The Drinkers"}],
+ creator:"The Drinkers",
+ publisher:"The Drinkers",
+ category:"music",
+ openGraph:{title:"THE DRINKERS 2.0 — Official",description:"Nova zasedba. Nova glasba. The Drinkers iz Litije.",type:"website",siteName:"The Drinkers",locale:"sl_SI"},
  twitter:{card:"summary_large_image",title:"THE DRINKERS 2.0",description:"Nova zasedba. Nova glasba. The Drinkers iz Litije."},
 };
 
