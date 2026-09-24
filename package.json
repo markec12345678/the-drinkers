@@ -1,35 +1,8 @@
 {
-  "name": "the-drinkers",
-  "version": "1.0.0",
-  "description": "Slovenska booze rock skupina – spletna stran",
-  "author": "The Drinkers",
-  "license": "MIT",
-  "private": true,
-  "scripts": {
-    "dev": "next dev -p 3001",
-    "build": "next build --webpack",
-    "start": "next start -p 3001",
-    "lint": "eslint",
-    "preinstall": "node preinstall.js"
-  },
-  "dependencies": {
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "lucide-react": "^0.564.0",
-    "next": "16.1.6",
-    "radix-ui": "^1.4.3",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "tailwind-merge": "^3.4.1"
-  },
-  "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.1.6",
-    "tailwindcss": "^4",
-    "typescript": "^5"
-  }
+  "name":"the-drinkers-official",
+  "version":"1.0.0",
+  "private":true,
+  "scripts":{"dev":"next dev","build":"next build","start":"next start"},
+  "dependencies":{"next":"16.1.0","react":"19.2.0","react-dom":"19.2.0"},
+  "devDependencies":{"@types/node":"^22.0.0","@types/react":"^19.0.0","@types/react-dom":"^19.0.0","typescript":"^5.7.0"}
 }
