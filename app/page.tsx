@@ -1,16 +1,17 @@
 "use client";
 
-import {useState} from "react";
+import {useEffect,useState} from "react";
 
-const albums=[
- {year:"1995",title:"Lepi in trezni",img:"/album-lepi-in-trezni.jpg"},
- {year:"1997",title:"Žeja",img:"/album-zeja.jpg"},
- {year:"1999",title:"Pivolucija",img:"/album-pivolucija.jpg"},
- {year:"1999",title:"Zadnja večerja",img:"/album-zadnja-vecerja.jpg"},
- {year:"2001",title:"De Best Od",img:"/album-de-best-of.jpg"},
- {year:"2003",title:"Prohibicija",img:"/album-prohibicija.jpg"},
- {year:"2007",title:"Hajdi",img:null},
- {year:"2014",title:"Recidiv",img:null},
+const releases=[
+ {year:"1995",title:"Lepi in trezni",type:"ALBUM",img:"/album-lepi-in-trezni.jpg"},
+ {year:"1997",title:"Žeja",type:"ALBUM",img:"/album-zeja.jpg"},
+ {year:"1998",title:"Ko to tamo peva",type:"SINGLE",img:"/ko-to-tamo-peva.jpg"},
+ {year:"1999",title:"Pivolucija",type:"ALBUM",img:"/album-pivolucija.jpg"},
+ {year:"1999",title:"Zadnja večerja",type:"EP",img:"/album-zadnja-vecerja.jpg"},
+ {year:"2001",title:"De Best Od",type:"COMPILATION",img:"/album-de-best-of.jpg"},
+ {year:"2003",title:"Prohibicija",type:"ALBUM",img:"/album-prohibicija.jpg"},
+ {year:"2007",title:"Hajdi",type:"ALBUM",img:null},
+ {year:"2014",title:"Recidiv",type:"ALBUM",img:null},
 ];
 
 const lineup=[
@@ -23,8 +24,8 @@ const lineup=[
 ];
 
 const shows=[
- {date:"07.03.2026",place:"Jevnica",venue:"Jevniški Retro Džuboks · 19:00",href:null},
- {date:"25.09.2026",place:"Domžale",venue:"Blunout · 20:30",href:"https://blunout.si/izdelek/koncert-the-drinkers-petek-25-09-2026-20-30/"},
+ {date:"07.03.2026",datetime:"2026-03-07T19:00:00+01:00",place:"Jevnica",venue:"Jevniški Retro Džuboks · 19:00",href:null},
+ {date:"25.09.2026",datetime:"2026-09-25T20:30:00+02:00",place:"Domžale",venue:"Blunout · 20:30",href:"https://blunout.si/izdelek/koncert-the-drinkers-petek-25-09-2026-20-30/"},
 ];
 
 const products=[
@@ -37,7 +38,6 @@ const products=[
 const spotifyArtist="https://open.spotify.com/artist/6XSxgkalTJrh6wkh1LFEF5";
 const youtubeSingle="https://www.youtube.com/watch?v=SvPAsFE3Y_8";
 const appleMusic="https://music.apple.com/us/artist/the-drinkers/1863334471";
-const dateKey=(value:string)=>{const [day,month,year]=value.split(".");return `${year}-${month}-${day}`;};
 
 export default function Home(){
  const [cart,setCart]=useState<string[]>([]);
@@ -45,17 +45,24 @@ export default function Home(){
  const [menuOpen,setMenuOpen]=useState(false);
  const cartProducts=cart.map(name=>products.find(p=>p.name===name)).filter(Boolean);
  const cartTotal=cartProducts.reduce((sum,p)=>sum+Number((p?.price??"€0").replace("€","")),0);
- const today=new Date();
- const todayKey=`${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,"0")}-${String(today.getDate()).padStart(2,"0")}`;
- const nextShowDate=shows.map(s=>s.date).filter(value=>dateKey(value)>=todayKey).sort((a,b)=>dateKey(a).localeCompare(dateKey(b)))[0];
- const nextShow=shows.find(s=>s.date===nextShowDate);
+ const now=Date.now();
+ const nextShow=shows.filter(s=>new Date(s.datetime).getTime()>=now).sort((a,b)=>new Date(a.datetime).getTime()-new Date(b.datetime).getTime())[0];
+
+ useEffect(()=>{
+  if(!cartOpen)return;
+  const onKeyDown=(event:KeyboardEvent)=>{if(event.key==="Escape")setCartOpen(false);};
+  document.addEventListener("keydown",onKeyDown);
+  const previousOverflow=document.body.style.overflow;
+  document.body.style.overflow="hidden";
+  return()=>{document.removeEventListener("keydown",onKeyDown);document.body.style.overflow=previousOverflow;};
+ },[cartOpen]);
 
  const toggleCartItem=(name:string)=>{
   setCart(current=>current.includes(name)?current.filter(item=>item!==name):[...current,name]);
  };
 
  return <main id="main-content">
-  <a className="skipLink" href="#main-content">PRESKOČI NA VSEBINO</a>
+  <a className="skipLink" href="#content">PRESKOČI NA VSEBINO</a>
   <nav className="nav" aria-label="Glavna navigacija">
    <a className="logo" href="#top" aria-label="The Drinkers — na vrh">THE<br/>DRINKERS</a>
    <div className="links">
@@ -63,9 +70,9 @@ export default function Home(){
    </div>
    <div className="navActions">
     <button className="cart" type="button" onClick={()=>setCartOpen(true)} aria-haspopup="dialog" aria-expanded={cartOpen}>CART <span>{cart.length}</span></button>
-    <button className="menuButton" type="button" onClick={()=>setMenuOpen(!menuOpen)} aria-label={menuOpen?"Zapri meni":"Odpri meni"} aria-expanded={menuOpen}>MENU <span>☰</span></button>
+    <button className="menuButton" type="button" onClick={()=>setMenuOpen(!menuOpen)} aria-label={menuOpen?"Zapri meni":"Odpri meni"} aria-expanded={menuOpen} aria-controls="mobileMenu">MENU <span>☰</span></button>
    </div>
-   {menuOpen&&<div className="mobileMenu">
+   {menuOpen&&<div id="mobileMenu" className="mobileMenu">
     {["music","band","media","shop","live","press"].map(id=><a key={id} href={"#"+id} onClick={()=>setMenuOpen(false)}>{id.toUpperCase()}</a>)}
    </div>}
   </nav>
@@ -79,6 +86,7 @@ export default function Home(){
    </aside>
   </div>}
 
+  <div id="content" className="contentAnchor" aria-hidden="true"/>
   <section id="top" className="hero" aria-labelledby="heroTitle">
    <div className="heroBg"/><div className="heroOverlay"/>
    <div className="heroContent"><p className="eyebrow">LITIJA · SLOVENIA · SINCE 1993</p><h1 id="heroTitle">THE<br/><em>DRINKERS</em></h1><p className="heroLead">THE DRINKERS 2.0 · NOVA ZASEDBA · NOVA GLASBA</p><div className="actions"><a className="btn primary" href="#new">NI ŠE UMRU ↓</a><a className="btn ghost" href="#live">LIVE DATES</a></div></div>
@@ -116,7 +124,7 @@ export default function Home(){
 
   <section id="music" className="music section">
    <div className="sectionHead light"><span>04 / DISCOGRAPHY</span><h2>ZGODOVINA<br/><i>+ NOVA ERA.</i></h2></div>
-   <div className="albums">{albums.map((a,i)=><article className="album" key={a.title}><div className={"albumCover "+(!a.img?"textCover":"")}>{a.img?<img src={a.img} alt={a.title} loading="lazy"/>:<strong>{a.title}</strong>}<span>{String(i+1).padStart(2,"0")}</span></div><div className="albumMeta"><span>{a.year}</span><h3>{a.title}</h3><a href="#listen">ARTIST ↗</a></div></article>)}</div>
+   <div className="albums">{releases.map((a,i)=><article className="album" key={a.title+a.year}><div className={"albumCover "+(!a.img?"textCover":"")}>{a.img?<img src={a.img} alt={a.title+" — "+a.type} loading="lazy"/>:<strong>{a.title}</strong>}<span>{String(i+1).padStart(2,"0")}</span></div><div className="albumMeta"><span>{a.year} · {a.type}</span><h3>{a.title}</h3><a href="#listen">ARTIST ↗</a></div></article>)}</div>
    <div className="currentTrack"><span>2026 · NEW SINGLE</span><strong>NI ŠE UMRU</strong><a href={youtubeSingle} target="_blank" rel="noopener noreferrer">PLAY VIDEO ↗</a></div>
   </section>
 
@@ -133,9 +141,37 @@ export default function Home(){
    <p className="shopNote">Trgovina je trenutno pripravljena kot preverljiv katalog in UX osnova. Checkout, plačilo, zaloga, velikosti in dostava še niso povezani.</p>
   </section>
 
+  <section id="press" className="press section">
+   <div className="sectionHead"><span>07 / PRESS & BOOKING</span><h2>READY FOR<br/><i>THE STAGE.</i></h2></div>
+   <div className="pressGrid">
+    <div>
+     <p className="pressLead">THE DRINKERS 2.0 · LITIJA · SLOVENIA · 1993 → 2026</p>
+     <p>Nova zasedba nadaljuje zgodbo skupine The Drinkers z Domnom Kolencem za mikrofonom, novo skladbo <strong>Ni še umru</strong> in javno napovedanim koncertom v Blunoutu v Domžalah.</p>
+     <p>Za novi singel je glasbo napisal Robert Likar, besedilo Domen Kolenc, videospot pa je režiral in zmontiral Rožle Kisovec.</p>
+     <div className="pressLinks">
+      <a href="https://www.rockline.si/opojni-napitki-eksoticne-plesalke-in-zupnik-the-drinkers-so-nazaj/" target="_blank" rel="noopener noreferrer">ROCKLINE ↗</a>
+      <a href="https://www.rocker.si/the-drinkers-so-nazaj-sin-pokojnega-kolija-za-mikrofonom-v-novi-pesmi-ni-se-umru/" target="_blank" rel="noopener noreferrer">ROCKER.SI ↗</a>
+      <a href="https://kultura.media.si/event/blunout-the-drinkers-25-09-2026" target="_blank" rel="noopener noreferrer">KULTURA.NET ↗</a>
+      <a href={youtubeSingle} target="_blank" rel="noopener noreferrer">YOUTUBE ↗</a>
+      <a href={spotifyArtist} target="_blank" rel="noopener noreferrer">SPOTIFY ↗</a>
+      <a href={appleMusic} target="_blank" rel="noopener noreferrer">APPLE MUSIC ↗</a>
+     </div>
+    </div>
+    <div className="pressFacts">
+     <div><span>LINEUP</span><strong>6 MEMBERS</strong></div>
+     <div><span>FRONTMAN</span><strong>DOMEN KOLENC</strong></div>
+     <div><span>NEW SINGLE</span><strong>NI ŠE UMRU</strong></div>
+     <div><span>NEXT PUBLIC SHOW</span><strong>25.09.2026 · BLUNOUT · DOMŽALE</strong></div>
+     <div><span>HOMETOWN</span><strong>LITIJA · SLOVENIA</strong></div>
+     <div><span>OUTPUT</span><strong>LIVE · MUSIC · MEDIA · MERCH</strong></div>
+    </div>
+   </div>
+   <p className="sourceNote">Aktualno zasedbo in vrnitev v letu 2026 potrjujeta Rockline in Blunout/Kultura.net (september 2026). Formalnega booking kontakta ne objavljamo, dokler uradni kontakt ni potrjen.</p>
+  </section>
+
   <section id="live" className="live section">
-   <div className="sectionHead"><span>07 / LIVE</span><h2>SEE YOU<br/><i>OUT THERE.</i></h2></div>
-   <div className="shows">{shows.map(s=>{const upcoming=s.date===nextShowDate;return <article className={"show "+(upcoming?"next":"")} key={s.date}><div><strong>{s.date}</strong><span>{upcoming?"NASLEDNJI NASTOP":"ODIGRANO"}</span></div><div><h3>{s.place}</h3><p>{s.venue}</p></div>{upcoming&&s.href?<a className="btn primary" href={s.href} target="_blank" rel="noopener noreferrer">TICKETS ↗</a>:<span className="showPast" aria-label="Nastop odigran">✓</span>}</article>;})}</div>
+   <div className="sectionHead"><span>08 / LIVE</span><h2>SEE YOU<br/><i>OUT THERE.</i></h2></div>
+   <div className="shows">{shows.map(s=>{const upcoming=s.datetime===nextShow?.datetime;return <article className={"show "+(upcoming?"next":"")} key={s.date}><div><strong><time dateTime={s.datetime}>{s.date}</time></strong><span>{upcoming?"NASLEDNJI NASTOP":"ODIGRANO"}</span></div><div><h3>{s.place}</h3><p>{s.venue}</p></div>{upcoming&&s.href?<a className="btn primary" href={s.href} target="_blank" rel="noopener noreferrer">TICKETS ↗</a>:<span className="showPast" aria-label="Nastop odigran">✓</span>}</article>;})}</div>
    <div className="liveCard"><span>THE RETURN</span><h3>THE STORY<br/>CONTINUES.</h3>{nextShow?<><p>Naslednji javno objavljen nastop: {nextShow.date} · {nextShow.venue} · {nextShow.place}.</p><a className="btn primary" href={nextShow.href??"#live"} target={nextShow.href?"_blank":undefined} rel={nextShow.href?"noopener noreferrer":undefined}>{nextShow.href?("TICKETS · "+nextShow.place.toUpperCase()+" ↗"):"LIVE UPDATES →"}</a></>:<p>Trenutno ni javno objavljenega naslednjega termina. Nove nastope bomo dodali v LIVE.</p>}</div>
   </section>
 
