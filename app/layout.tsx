@@ -2,6 +2,8 @@ import type {Metadata} from "next";
 import "./globals.css";
 
 export const metadata:Metadata={
+ metadataBase:new URL("https://markec12345678.github.io/the-drinkers/"),
+ alternates:{canonical:"/"},
  title:"THE DRINKERS 2.0 — Official",
  description:"The Drinkers — Litija, Slovenia. Nova zasedba, nova glasba in aktualni koncerti za 2026.",
  keywords:["The Drinkers","The Drinkers 2.0","Ni še umru","drink’n’roll","Litija","Slovenia","rock","Domen Kolenc"],
@@ -9,7 +11,7 @@ export const metadata:Metadata={
  creator:"The Drinkers",
  publisher:"The Drinkers",
  category:"music",
- openGraph:{title:"THE DRINKERS 2.0 — Official",description:"Nova zasedba. Nova glasba. The Drinkers iz Litije.",type:"website",siteName:"The Drinkers",locale:"sl_SI"},
+ openGraph:{url:"https://markec12345678.github.io/the-drinkers/",title:"THE DRINKERS 2.0 — Official",description:"Nova zasedba. Nova glasba. The Drinkers iz Litije.",type:"website",siteName:"The Drinkers",locale:"sl_SI"},
  twitter:{card:"summary_large_image",title:"THE DRINKERS 2.0",description:"Nova zasedba. Nova glasba. The Drinkers iz Litije."},
 };
 
