@@ -104,7 +104,8 @@ export default function Home(){
 
   <section id="band" className="band section">
    <div className="sectionHead"><span>01 / THE NEW DRINKERS</span><h2>NOVA<br/><i>ZASEDBA.</i></h2></div>
-   <div className="bandGrid">{lineup.map(([name,role],i)=><article className="member" key={name}><span>0{i+1}</span><div><h3>{name}</h3><p>{role}</p></div></article>)}</div>
+   <div className="bandIntro"><div className="bandPortrait"><img src="/drinkers-band-photo.jpg" alt="The Drinkers — nova zasedba" loading="lazy"/><span>THE DRINKERS 2.0 · 2026</span></div><div className="bandStatement"><strong>ŠEST.</strong><strong>EN ODER.</strong><p>Nova zasedba The Drinkers nadaljuje zgodbo skupine iz Litije. Domen Kolenc je novi vokalist, ob njem pa petčlanska instrumentalna zasedba.</p></div></div>
+   <div className="bandGrid">{lineup.map(([name,role],i)=><article className="member" key={name}><span>0{i+1}</span><div><h3>{name}</h3><p>{role}</p></div><b>↗</b></article>)}</div>
    <p className="sourceNote">Vir za aktualno zasedbo: Blunout, 25. 9. 2026, in Rockline, 15. 9. 2026.</p>
   </section>
 
