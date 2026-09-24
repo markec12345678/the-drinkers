@@ -25,7 +25,7 @@ const lineup=[
 const shows=[
  {date:"07.03.2026",place:"Jevnica",venue:"Jevniški Retro Džuboks · 19:00",href:null},
  {date:"25.09.2026",place:"Domžale",venue:"Blunout · 20:30",href:"https://blunout.si/izdelek/koncert-the-drinkers-petek-25-09-2026-20-30/"},
- {date:"24.10.2026",place:"Kranj",venue:"KluBar · Chateau & The Drinkers · 20:30",href:"https://klubar.si/vstopnice/"},
+ {date:"24.10.2026",place:"Kranj",venue:"KluBar · vrata 20:30 · The Drinkers 22:30",href:"https://klubar.si/vstopnice/"},
 ];
 
 const products=[
@@ -63,7 +63,7 @@ export default function Home(){
    </div>
    <div className="navActions">
     <button className="cart" type="button" onClick={()=>setCartOpen(true)} aria-haspopup="dialog" aria-expanded={cartOpen}>CART <span>{cart.length}</span></button>
-    <button className="menuButton" type="button" onClick={()=>setMenuOpen(!menuOpen)} aria-label="Odpri meni" aria-expanded={menuOpen}>MENU <span>☰</span></button>
+    <button className="menuButton" type="button" onClick={()=>setMenuOpen(!menuOpen)} aria-label={menuOpen?"Zapri meni":"Odpri meni"} aria-expanded={menuOpen}>MENU <span>☰</span></button>
    </div>
    {menuOpen&&<div className="mobileMenu">
     {["music","band","media","shop","live"].map(id=><a key={id} href={"#"+id} onClick={()=>setMenuOpen(false)}>{id.toUpperCase()}</a>)}
