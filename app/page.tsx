@@ -36,6 +36,7 @@ const products=[
 
 const spotifyArtist="https://open.spotify.com/artist/6XSxgkalTJrh6wkh1LFEF5";
 const youtubeSingle="https://www.youtube.com/watch?v=SvPAsFE3Y_8";
+const appleMusic="https://music.apple.com/us/artist/the-drinkers/1863334471";
 const dateKey=(value:string)=>{const [day,month,year]=value.split(".");return `${year}-${month}-${day}`;};
 
 export default function Home(){
@@ -119,7 +120,7 @@ export default function Home(){
    <div className="currentTrack"><span>2026 · NEW SINGLE</span><strong>NI ŠE UMRU</strong><a href={youtubeSingle} target="_blank" rel="noopener noreferrer">PLAY VIDEO ↗</a></div>
   </section>
 
-  <section id="listen" className="listen section"><div><span className="kicker">LISTEN NOW</span><h2>THE SOUND<br/><i>OF DRINKERS.</i></h2></div><div className="platforms"><a href={youtubeSingle} target="_blank" rel="noopener noreferrer">NI ŠE UMRU · YOUTUBE ↗</a><a href={spotifyArtist} target="_blank" rel="noopener noreferrer">THE DRINKERS · SPOTIFY ↗</a></div></section>
+  <section id="listen" className="listen section"><div><span className="kicker">LISTEN NOW</span><h2>THE SOUND<br/><i>OF DRINKERS.</i></h2></div><div className="platforms"><a href={youtubeSingle} target="_blank" rel="noopener noreferrer">NI ŠE UMRU · YOUTUBE ↗</a><a href={spotifyArtist} target="_blank" rel="noopener noreferrer">THE DRINKERS · SPOTIFY ↗</a><a href={appleMusic} target="_blank" rel="noopener noreferrer">THE DRINKERS · APPLE MUSIC ↗</a></div></section>
 
   <section id="timeline" className="timeline section">
    <div className="sectionHead"><span>05 / ARCHIVE</span><h2>1993 → <i>2026</i></h2></div>
@@ -141,7 +142,7 @@ export default function Home(){
   <footer id="contact">
    <div className="footerBrand">THE<br/><i>DRINKERS</i></div>
    <div><span>PRESS</span><a href="https://www.rockline.si/opojni-napitki-eksoticne-plesalke-in-zupnik-the-drinkers-so-nazaj/" target="_blank" rel="noopener noreferrer">Rockline · 2026 ↗</a><a href="https://kultura.media.si/event/blunout-the-drinkers-25-09-2026" target="_blank" rel="noopener noreferrer">Kultura.net · Blunout ↗</a></div>
-   <div><span>LIVE</span><a href="https://blunout.si/izdelek/koncert-the-drinkers-petek-25-09-2026-20-30/" target="_blank" rel="noopener noreferrer">25.09.2026 · BLUNOUT ↗</a><a href="#shop">MERCH →</a></div>
+   <div><span>LIVE</span><a href="https://blunout.si/izdelek/koncert-the-drinkers-petek-25-09-2026-20-30/" target="_blank" rel="noopener noreferrer">25.09.2026 · BLUNOUT ↗</a><a href="#press">PRESS / BOOKING →</a><a href="#shop">MERCH →</a></div>
    <small>© THE DRINKERS · LITIJA · SLOVENIA · 2026</small>
   </footer>
  </main>
