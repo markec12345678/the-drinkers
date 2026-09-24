@@ -59,14 +59,14 @@ export default function Home(){
   <nav className="nav" aria-label="Glavna navigacija">
    <a className="logo" href="#top" aria-label="The Drinkers — na vrh">THE<br/>DRINKERS</a>
    <div className="links">
-    <a href="#music">MUSIC</a><a href="#band">BAND</a><a href="#media">MEDIA</a><a href="#shop">SHOP</a><a href="#live">LIVE</a>
+    <a href="#music">MUSIC</a><a href="#band">BAND</a><a href="#media">MEDIA</a><a href="#shop">SHOP</a><a href="#live">LIVE</a><a href="#press">PRESS</a>
    </div>
    <div className="navActions">
     <button className="cart" type="button" onClick={()=>setCartOpen(true)} aria-haspopup="dialog" aria-expanded={cartOpen}>CART <span>{cart.length}</span></button>
     <button className="menuButton" type="button" onClick={()=>setMenuOpen(!menuOpen)} aria-label={menuOpen?"Zapri meni":"Odpri meni"} aria-expanded={menuOpen}>MENU <span>☰</span></button>
    </div>
    {menuOpen&&<div className="mobileMenu">
-    {["music","band","media","shop","live"].map(id=><a key={id} href={"#"+id} onClick={()=>setMenuOpen(false)}>{id.toUpperCase()}</a>)}
+    {["music","band","media","shop","live","press"].map(id=><a key={id} href={"#"+id} onClick={()=>setMenuOpen(false)}>{id.toUpperCase()}</a>)}
    </div>}
   </nav>
 
