@@ -71,7 +71,7 @@ export default function Home(){
     <a href="#music">MUSIC</a><a href="#band">BAND</a><a href="#media">MEDIA</a><a href="#shop">SHOP</a><a href="#live">LIVE</a><a href="#press">PRESS</a>
    </div>
    <div className="navActions">
-    <button className="cart" type="button" onClick={()=>setCartOpen(true)} aria-haspopup="dialog" aria-expanded={cartOpen}>CART <span>{cart.length}</span></button>
+    <button className="cart" type="button" onClick={()=>setCartOpen(true)} aria-haspopup="dialog" aria-expanded={cartOpen} aria-label={`Košarica, ${cart.length} izbranih izdelkov`}>CART <span aria-live="polite">{cart.length}</span></button>
     <button className="menuButton" type="button" onClick={()=>setMenuOpen(!menuOpen)} aria-label={menuOpen?"Zapri meni":"Odpri meni"} aria-expanded={menuOpen} aria-controls="mobileMenu">MENU <span>☰</span></button>
    </div>
    {menuOpen&&<div id="mobileMenu" className="mobileMenu">
@@ -84,7 +84,7 @@ export default function Home(){
     <div className="cartHeader"><div><span className="kicker">MERCH SELECTION</span><h2 id="cartTitle">YOUR CART.</h2></div><button type="button" className="closeButton" onClick={()=>setCartOpen(false)} aria-label="Zapri košarico">×</button></div>
     {cart.length===0?<div className="cartEmpty"><strong>KOŠARICA JE PRAZNA.</strong><p>Izberi kos mercha. Ko bo checkout priključen, bo ta izbor postal pravi nakupni tok.</p></div>:
       <div className="cartItems">{cartProducts.map(p=><div className="cartItem" key={p!.name}><div><strong>{p!.name}</strong><span>{p!.tag}</span></div><div><b>{p!.price}</b><button type="button" onClick={()=>toggleCartItem(p!.name)}>REMOVE</button></div></div>)}</div>}
-    <div className="cartFooter"><div><span>TOTAL SELECTION</span><strong>€{cartTotal}</strong></div><button type="button" className="btn primary cartCta" disabled>CHECKOUT · COMING SOON</button><p>Plačila in dostava še niso povezani; trenutno gre za vizualni trgovinski prototip.</p></div>
+    <div className="cartFooter"><div><span>TOTAL SELECTION</span><strong>€{cartTotal}</strong></div><div className="cartFooterActions"><button type="button" className="btn darkGhost" onClick={()=>setCart([])} disabled={cart.length===0}>CLEAR CART</button><button type="button" className="btn primary cartCta" disabled>CHECKOUT · COMING SOON</button></div><p>Plačila in dostava še niso povezani; trenutno gre za vizualni trgovinski prototip. Izbor se shrani v tej napravi.</p></div>
    </aside>
   </div>}
 
