@@ -36,6 +36,7 @@ const products=[
 
 const spotifyArtist="https://open.spotify.com/artist/6XSxgkalTJrh6wkh1LFEF5";
 const youtubeSingle="https://www.youtube.com/watch?v=SvPAsFE3Y_8";
+const dateKey=(value:string)=>{const [day,month,year]=value.split(".");return `${year}-${month}-${day}`;};
 
 export default function Home(){
  const [cart,setCart]=useState<string[]>([]);
@@ -43,6 +44,10 @@ export default function Home(){
  const [menuOpen,setMenuOpen]=useState(false);
  const cartProducts=cart.map(name=>products.find(p=>p.name===name)).filter(Boolean);
  const cartTotal=cartProducts.reduce((sum,p)=>sum+Number((p?.price??"€0").replace("€","")),0);
+ const today=new Date();
+ const todayKey=`${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,"0")}-${String(today.getDate()).padStart(2,"0")}`;
+ const nextShowDate=shows.map(s=>s.date).filter(value=>dateKey(value)>=todayKey).sort((a,b)=>dateKey(a).localeCompare(dateKey(b)))[0];
+ const nextShow=shows.find(s=>s.date===nextShowDate);
 
  const toggleCartItem=(name:string)=>{
   setCart(current=>current.includes(name)?current.filter(item=>item!==name):[...current,name]);
@@ -80,7 +85,7 @@ export default function Home(){
   </section>
 
   <div className="ticker" aria-label="Novosti">
-   <span>THE DRINKERS 2.0</span><span>NI ŠE UMRU</span><span>DOMEN KOLENC</span><span>25.09.2026 · DOMŽALE</span><span>THE DRINKERS</span><span>NEW MUSIC</span>
+   <span>THE DRINKERS 2.0</span><span>NI ŠE UMRU</span><span>DOMEN KOLENC</span><span>{nextShow?nextShow.date+" · "+nextShow.place:"NEW LIVE DATES SOON"}</span><span>THE DRINKERS</span><span>NEW MUSIC</span>
   </div>
 
   <section id="new" className="newRelease section">
@@ -110,7 +115,7 @@ export default function Home(){
 
   <section id="music" className="music section">
    <div className="sectionHead light"><span>04 / DISCOGRAPHY</span><h2>ZGODOVINA<br/><i>+ NOVA ERA.</i></h2></div>
-   <div className="albums">{albums.map((a,i)=><article className="album" key={a.title}><div className={"albumCover "+(!a.img?"textCover":"")}>{a.img?<img src={a.img} alt={a.title} loading="lazy"/>:<strong>{a.title}</strong>}<span>{String(i+1).padStart(2,"0")}</span></div><div className="albumMeta"><span>{a.year}</span><h3>{a.title}</h3><a href={a.title==="Recidiv"?spotifyArtist:"#listen"} target={a.title==="Recidiv"?"_blank":undefined} rel={a.title==="Recidiv"?"noopener noreferrer":undefined}>LISTEN ↗</a></div></article>)}</div>
+   <div className="albums">{albums.map((a,i)=><article className="album" key={a.title}><div className={"albumCover "+(!a.img?"textCover":"")}>{a.img?<img src={a.img} alt={a.title} loading="lazy"/>:<strong>{a.title}</strong>}<span>{String(i+1).padStart(2,"0")}</span></div><div className="albumMeta"><span>{a.year}</span><h3>{a.title}</h3><a href="#listen">ARTIST ↗</a></div></article>)}</div>
    <div className="currentTrack"><span>2026 · NEW SINGLE</span><strong>NI ŠE UMRU</strong><a href={youtubeSingle} target="_blank" rel="noopener noreferrer">PLAY VIDEO ↗</a></div>
   </section>
 
@@ -129,8 +134,8 @@ export default function Home(){
 
   <section id="live" className="live section">
    <div className="sectionHead"><span>07 / LIVE</span><h2>SEE YOU<br/><i>OUT THERE.</i></h2></div>
-   <div className="shows">{shows.map(s=><article className={"show "+(s.date==="25.09.2026"?"next":"")} key={s.date}><div><strong>{s.date}</strong><span>{s.date==="25.09.2026"?"NASLEDNJI NASTOP":"ODIGRANO"}</span></div><div><h3>{s.place}</h3><p>{s.venue}</p></div>{s.href?<a className="btn primary" href={s.href} target="_blank" rel="noopener noreferrer">TICKETS ↗</a>:<span className="showPast" aria-label="Nastop odigran">✓</span>}</article>)}</div>
-   <div className="liveCard"><span>THE RETURN</span><h3>THE STORY<br/>CONTINUES.</h3><p>Nova zasedba, nova glasba in novi koncerti. Naslednji javno objavljen nastop je 25. septembra 2026 v Blunoutu v Domžalah.</p><a className="btn primary" href="https://blunout.si/izdelek/koncert-the-drinkers-petek-25-09-2026-20-30/" target="_blank" rel="noopener noreferrer">TICKETS · BLUNOUT ↗</a></div>
+   <div className="shows">{shows.map(s=>{const upcoming=s.date===nextShowDate;return <article className={"show "+(upcoming?"next":"")} key={s.date}><div><strong>{s.date}</strong><span>{upcoming?"NASLEDNJI NASTOP":"ODIGRANO"}</span></div><div><h3>{s.place}</h3><p>{s.venue}</p></div>{upcoming&&s.href?<a className="btn primary" href={s.href} target="_blank" rel="noopener noreferrer">TICKETS ↗</a>:<span className="showPast" aria-label="Nastop odigran">✓</span>}</article>;})}</div>
+   <div className="liveCard"><span>THE RETURN</span><h3>THE STORY<br/>CONTINUES.</h3>{nextShow?<><p>Naslednji javno objavljen nastop: {nextShow.date} · {nextShow.venue} · {nextShow.place}.</p><a className="btn primary" href={nextShow.href??"#live"} target={nextShow.href?"_blank":undefined} rel={nextShow.href?"noopener noreferrer":undefined}>{nextShow.href?"TICKETS · BLUNOUT ↗":"LIVE UPDATES →"}</a></>:<p>Trenutno ni javno objavljenega naslednjega termina. Nove nastope bomo dodali v LIVE.</p>}</div>
   </section>
 
   <footer id="contact">
