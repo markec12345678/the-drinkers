@@ -140,3 +140,4 @@ export default function Home(){
    <small>© THE DRINKERS · LITIJA · SLOVENIA · 2026</small>
   </footer>
  </main>
+}
