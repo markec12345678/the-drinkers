@@ -141,7 +141,7 @@ export default function Home(){
   <footer id="contact">
    <div className="footerBrand">THE<br/><i>DRINKERS</i></div>
    <div><span>PRESS</span><a href="https://www.rockline.si/opojni-napitki-eksoticne-plesalke-in-zupnik-the-drinkers-so-nazaj/" target="_blank" rel="noopener noreferrer">Rockline · 2026 ↗</a><a href="https://kultura.media.si/event/blunout-the-drinkers-25-09-2026" target="_blank" rel="noopener noreferrer">Kultura.net · Blunout ↗</a></div>
-   <div><span>LIVE</span><a href="https://blunout.si/izdelek/koncert-the-drinkers-petek-25-09-2026-20-30/" target="_blank" rel="noopener noreferrer">25.09.2026 · BLUNOUT ↗</a><a href="https://klubar.si/vstopnice/" target="_blank" rel="noopener noreferrer">24.10.2026 · KLUBAR ↗</a><a href="#shop">MERCH →</a></div>
+   <div><span>LIVE</span><a href="https://blunout.si/izdelek/koncert-the-drinkers-petek-25-09-2026-20-30/" target="_blank" rel="noopener noreferrer">25.09.2026 · BLUNOUT ↗</a><a href="#shop">MERCH →</a></div>
    <small>© THE DRINKERS · LITIJA · SLOVENIA · 2026</small>
   </footer>
  </main>
