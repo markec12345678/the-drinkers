@@ -114,7 +114,12 @@ export default function Home(){
     <article className="mediaCard featured"><img src="https://kultura.media.si/media/2026/08/mpro-retrieved-fb-photo-1553544069578762-1785890530096-150x150.avif" alt="The Drinkers — aktualna fotografija, 2026" loading="lazy" /><div><span>2026 · PRESS PHOTO</span><h3>THE DRINKERS 2.0</h3><p>Aktualna fotografija, objavljena ob napovedi koncerta v Domžalah.</p><a href="https://www.rockline.si/opojni-napitki-eksoticne-plesalke-in-zupnik-the-drinkers-so-nazaj/" target="_blank" rel="noopener noreferrer">PRESS SOURCE ↗</a></div></article>
     <article className="mediaCard"><img src="https://i.ytimg.com/vi/SvPAsFE3Y_8/maxresdefault.jpg" alt="Ni še umru — videospot" loading="lazy" /><div><span>NEW VIDEO</span><h3>NI ŠE UMRU</h3><p>Uradni videospot nove skladbe.</p><a href={youtubeSingle} target="_blank" rel="noopener noreferrer">OGLEJ ↗</a></div></article>
    </div>
-   <p className="sourceNote">Fotografija: Špela Ostrež / objavljeno pri Rockline. Pred produkcijsko objavo je potrebno urediti dovoljenje imetnika pravic; do takrat naj ostane ta vir le referenca.</p>
+   <div className="archiveLinks">
+    <a href="https://www.rockline.si/alkoholni-naliv-v-podlipi-2011/" target="_blank" rel="noopener noreferrer"><span>2011</span><strong>PODLIPA · ROCKLINE GALERIJA ↗</strong><small>Fotografije: Aleš Podbrežnik</small></a>
+    <a href="https://www.rockline.si/alkoholna-blasfemija-v-skofji-loki-2013/" target="_blank" rel="noopener noreferrer"><span>2013</span><strong>ŠKOFJA LOKA · ROCKLINE ↗</strong><small>Fotografije: Aleš Podbrežnik</small></a>
+    <a href="https://www.rockline.si/koncertno-rojstvo-recidiva-2014/" target="_blank" rel="noopener noreferrer"><span>2014</span><strong>RECIDIV · ORTO BAR · ROCKLINE ↗</strong><small>Fotografije: Aleš Podbrežnik</small></a>
+   </div>
+   <p className="sourceNote">Aktualna fotografija je označena z virom Rockline/Špela Ostrež. Zgodovinske fotografije ostajajo povezane na izvorne galerije, kjer so navedeni njihovi avtorji; ne kopiram jih v repo brez potrjene pravice za ponovno objavo.</p>
   </section>
 
   <section id="story" className="story section">
