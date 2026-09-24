@@ -1,8 +1,11 @@
-import type { Metadata } from "next";
+import type {Metadata} from "next";
 import "./globals.css";
-export const metadata: Metadata={
- title:"THE DRINKERS — Official",
- description:"The Drinkers — rock'n'roll from Litija, Slovenia. Since 1993.",
- metadataBase:new URL("https://the-drinkers.vercel.app")
+
+export const metadata:Metadata={
+ title:"THE DRINKERS 2.0 — Official",
+ description:"The Drinkers — Litija, Slovenia. Nova zasedba, nova glasba in aktualni koncerti za 2026.",
 };
-export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="sl"><body>{children}</body></html>}
+
+export default function RootLayout({children}:{children:React.ReactNode}){
+ return <html lang="sl"><body>{children}</body></html>;
+}
