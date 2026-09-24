@@ -136,7 +136,7 @@ export default function Home(){
   <section id="live" className="live section">
    <div className="sectionHead"><span>07 / LIVE</span><h2>SEE YOU<br/><i>OUT THERE.</i></h2></div>
    <div className="shows">{shows.map(s=>{const upcoming=s.date===nextShowDate;return <article className={"show "+(upcoming?"next":"")} key={s.date}><div><strong>{s.date}</strong><span>{upcoming?"NASLEDNJI NASTOP":"ODIGRANO"}</span></div><div><h3>{s.place}</h3><p>{s.venue}</p></div>{upcoming&&s.href?<a className="btn primary" href={s.href} target="_blank" rel="noopener noreferrer">TICKETS ↗</a>:<span className="showPast" aria-label="Nastop odigran">✓</span>}</article>;})}</div>
-   <div className="liveCard"><span>THE RETURN</span><h3>THE STORY<br/>CONTINUES.</h3>{nextShow?<><p>Naslednji javno objavljen nastop: {nextShow.date} · {nextShow.venue} · {nextShow.place}.</p><a className="btn primary" href={nextShow.href??"#live"} target={nextShow.href?"_blank":undefined} rel={nextShow.href?"noopener noreferrer":undefined}>{nextShow.href?"TICKETS · BLUNOUT ↗":"LIVE UPDATES →"}</a></>:<p>Trenutno ni javno objavljenega naslednjega termina. Nove nastope bomo dodali v LIVE.</p>}</div>
+   <div className="liveCard"><span>THE RETURN</span><h3>THE STORY<br/>CONTINUES.</h3>{nextShow?<><p>Naslednji javno objavljen nastop: {nextShow.date} · {nextShow.venue} · {nextShow.place}.</p><a className="btn primary" href={nextShow.href??"#live"} target={nextShow.href?"_blank":undefined} rel={nextShow.href?"noopener noreferrer":undefined}>{nextShow.href?("TICKETS · "+nextShow.place.toUpperCase()+" ↗"):"LIVE UPDATES →"}</a></>:<p>Trenutno ni javno objavljenega naslednjega termina. Nove nastope bomo dodali v LIVE.</p>}</div>
   </section>
 
   <footer id="contact">
