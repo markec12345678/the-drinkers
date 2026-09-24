@@ -97,7 +97,7 @@ export default function Home(){
   <section id="band" className="band section">
    <div className="sectionHead"><span>01 / THE NEW DRINKERS</span><h2>NOVA<br/><i>ZASEDBA.</i></h2></div>
    <div className="bandGrid">{lineup.map(([name,role],i)=><article className="member" key={name}><span>0{i+1}</span><div><h3>{name}</h3><p>{role}</p></div></article>)}</div>
-   <p className="sourceNote">Aktualna šestčlanska zasedba je navedena v napovedi koncerta Blunout za 25. 9. 2026 in v sveži objavi Rockline.</p>
+   <p className="sourceNote">Vir za aktualno zasedbo: Blunout, 25. 9. 2026, in Rockline, 15. 9. 2026.</p>
   </section>
 
   <section id="media" className="media section">
@@ -106,7 +106,7 @@ export default function Home(){
     <article className="mediaCard featured"><img src="https://kultura.media.si/media/2026/08/mpro-retrieved-fb-photo-1553544069578762-1785890530096-150x150.avif" alt="The Drinkers — aktualna fotografija, 2026" loading="lazy" /><div><span>2026 · PRESS PHOTO</span><h3>THE DRINKERS 2.0</h3><p>Aktualna fotografija, objavljena ob napovedi koncerta v Domžalah.</p><a href="https://www.rockline.si/opojni-napitki-eksoticne-plesalke-in-zupnik-the-drinkers-so-nazaj/" target="_blank" rel="noopener noreferrer">PRESS SOURCE ↗</a></div></article>
     <article className="mediaCard"><img src="https://i.ytimg.com/vi/SvPAsFE3Y_8/maxresdefault.jpg" alt="Ni še umru — videospot" loading="lazy" /><div><span>NEW VIDEO</span><h3>NI ŠE UMRU</h3><p>Uradni videospot nove skladbe.</p><a href={youtubeSingle} target="_blank" rel="noopener noreferrer">OGLEJ ↗</a></div></article>
    </div>
-   <p className="sourceNote">Fotografija: Špela Ostrež / objavljeno pri Rockline. Za uporabo fotografije neposredno na uradni strani je potrebno urediti dovoljenje imetnika pravic.</p>
+   <p className="sourceNote">Fotografija: Špela Ostrež / objavljeno pri Rockline. Pred produkcijsko objavo je potrebno urediti dovoljenje imetnika pravic; do takrat naj ostane ta vir le referenca.</p>
   </section>
 
   <section id="story" className="story section">
