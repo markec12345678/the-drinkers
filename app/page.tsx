@@ -25,7 +25,6 @@ const lineup=[
 const shows=[
  {date:"07.03.2026",place:"Jevnica",venue:"Jevniški Retro Džuboks · 19:00",href:null},
  {date:"25.09.2026",place:"Domžale",venue:"Blunout · 20:30",href:"https://blunout.si/izdelek/koncert-the-drinkers-petek-25-09-2026-20-30/"},
- {date:"24.10.2026",place:"Kranj",venue:"KluBar · vrata 20:30 · The Drinkers 22:30",href:"https://klubar.si/vstopnice/"},
 ];
 
 const products=[
@@ -124,7 +123,7 @@ export default function Home(){
 
   <section id="timeline" className="timeline section">
    <div className="sectionHead"><span>05 / ARCHIVE</span><h2>1993 → <i>2026</i></h2></div>
-   <div className="years">{[["1993","Nastanek skupine v Litiji."],["1995","Lepi in trezni."],["1997","Žeja."],["1999","Pivolucija in Zadnja večerja."],["2001","De Best Od."],["2003","Prohibicija."],["2007","Hajdi."],["2014","Recidiv."],["07.03.2026","Prvi nastop nove zasedbe · Jevnica."],["2026","Nova skladba: Ni še umru."],["24.10.2026","Chateau & The Drinkers · KluBar, Kranj."]].map(x=><div className="year" key={x[0]}><strong>{x[0]}</strong><p>{x[1]}</p></div>)}</div>
+   <div className="years">{[["1993","Nastanek skupine v Litiji."],["1995","Lepi in trezni."],["1997","Žeja."],["1999","Pivolucija in Zadnja večerja."],["2001","De Best Od."],["2003","Prohibicija."],["2007","Hajdi."],["2014","Recidiv."],["07.03.2026","Prvi nastop nove zasedbe · Jevnica."],["2026","Nova skladba: Ni še umru."].map(x=><div className="year" key={x[0]}><strong>{x[0]}</strong><p>{x[1]}</p></div>)}</div>
   </section>
 
   <section id="shop" className="shop section">
